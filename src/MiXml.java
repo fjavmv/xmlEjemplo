@@ -8,6 +8,7 @@ public class MiXml {
     public static Document generaXml ( ){
         //Permite que las aplicaciones obtengan un analizador que produce árboles de objetos DOM a partir de documentos XML.
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
         try{
             //Permite obtener una instancias de documentos DOM de un documento XML.
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -15,7 +16,6 @@ public class MiXml {
             // independientes de cualquier instancia particular del DOM.
             DOMImplementation implementation = builder.getDOMImplementation();
             document = implementation.createDocument(null, "xml", null);
-
             //Element representa un elemento en un documento HTML o XML.
             //Sección para crear elementos
             //Se crea elemento raiz
@@ -31,7 +31,6 @@ public class MiXml {
             //Creamos otro elemento
             Element precioJamon =  document.createElement("Precio");
             Text valPrecioJamon = document.createTextNode("2000");
-
             //Asignamos la versión de nuestro XML
             document.setXmlVersion("1.0");
             //Añadimos la factura al documento
@@ -44,7 +43,6 @@ public class MiXml {
             tipoJamon.appendChild(valTipoJamon);
             jamon.appendChild(precioJamon);
             precioJamon.appendChild(valPrecioJamon);
-
         }catch(Exception e){
             System.err.println("Ha ocurrido un error: " + e);
         }
